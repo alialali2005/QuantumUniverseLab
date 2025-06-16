@@ -1,0 +1,117 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>شرح المصطلح</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #f9f9f9;
+      margin: 0;
+      padding: 0;
+      text-align: center;
+    }
+
+    header {
+      background: #222;
+      color: white;
+      padding: 20px;
+      text-align: left;
+      direction: rtl;
+    }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5em;
+    }
+
+    .description {
+      padding: 20px;
+      font-size: 1.2em;
+      color: #444;
+      max-width: 800px;
+      margin: auto;
+    }
+
+    .slider {
+      position: relative;
+      max-width: 600px;
+      margin: 40px auto;
+    }
+
+    .slider img {
+      width: 100%;
+      display: none;
+      border-radius: 10px;
+    }
+
+    .slider img.active {
+      display: block;
+    }
+
+    .buttons {
+      margin-top: 10px;
+    }
+
+    button {
+      padding: 10px 20px;
+      margin: 5px;
+      font-size: 16px;
+      border: none;
+      background-color: #333;
+      color: white;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+
+    button:hover {
+      background-color: #555;
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>ايچانولوجي</h1>
+  </header>
+
+  <div class="description">
+    <strong>معنى كلمة (إيجة):</strong><br /><br />
+    تعني الفرس الجميل والكبير بالسن، والإيچه كلمة بغدادية قديمة يرجع أصلها إلى عام 1900. حيث كانت تُنعت بها الخيول العربية الأصيلة والجميلة، فكان أهل بغداد يدلعون خيولهم، بالذات الإناث منهن، بـ"الإيجة".<br /><br />
+    ومع مرور الزمن أصبحت هذه المفردة تُطلق على النساء الجميلات اللواتي تتراوح أعمارهن ما بين (30–50) سنة، واللاتي يتميزن بالطول الفارع، القوام الممشوق، والسمنة المعتدلة، مما يجعلهن أكثر جاذبية في عيون الآخرين. ويقابلها باللهجة المصرية مفردة "المزة".
+  </div>
+
+  <div class="slider">
+    <img src="https://i.postimg.cc/Ff3HG6s8/159429a78f8a87f36baa2b0181af2778.jpg" class="active" alt="صورة 1" />
+    <img src="https://i.postimg.cc/0MC21JSC/5113f9b036ec2a0ebb35d78c92205c07.jpg" alt="صورة 2" />
+    <img src="https://i.postimg.cc/7G4YRN56/9d942a90be611bb952f8935df5a5051e.jpg" alt="صورة 3" />
+    <div class="buttons">
+      <button onclick="prevImage()">السابق</button>
+      <button onclick="nextImage()">التالي</button>
+    </div>
+  </div>
+
+  <script>
+    let current = 0;
+    const images = document.querySelectorAll('.slider img');
+
+    function showImage(index) {
+      images.forEach(img => img.classList.remove('active'));
+      images[index].classList.add('active');
+    }
+
+    function nextImage() {
+      current = (current + 1) % images.length;
+      showImage(current);
+    }
+
+    function prevImage() {
+      current = (current - 1 + images.length) % images.length;
+      showImage(current);
+    }
+  </script>
+
+</body>
+</html>
